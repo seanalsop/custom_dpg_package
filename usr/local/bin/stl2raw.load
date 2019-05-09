@@ -1,6 +1,7 @@
 #!/bin/sh
 SITE=${1:-1}
+MODE=${2:-1}
 STATE=$(get.site $SITE dpg_status | awk '{ print $1 }')
-[ $STATE -eq 0 ] && stl2raw | bb load
+[ $STATE -eq 0 ] && stl2raw | bb load --mode=$MODE
 
 
